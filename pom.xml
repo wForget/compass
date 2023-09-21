@@ -70,6 +70,7 @@
         <java-jwt.version>4.2.2</java-jwt.version>
         <derby.version>10.14.2.0</derby.version>
         <testcontainers.version>1.19.0</testcontainers.version>
+        <assembly.skip>true</assembly.skip>
 
         <!--Vulnerability version fixes-->
         <velocity.version>1.7</velocity.version>
@@ -442,6 +443,18 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>dist</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <assembly.skip>false</assembly.skip>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
